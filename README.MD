@@ -58,6 +58,17 @@ Na tela a seguir, basta apenas confirmar a URL do `Jenkins` e clicar em "Gravar 
 Pronto, o `Jenkins` está configurado, basta clicar em "Começar a usar o Jenkins", após isso, você será direcionado para a tela inicial do `Jenkins`, conforme imagem a seguir:
 ![Home page Jenkins](https://github.com/marcelocezario/imagens-publicas/blob/main/projeto-jenkins/Home%20page%20Jenkins.png?raw=true)
 
+## Hello World Jenkins!
+Vamos criar um primeiro projeto Hello World. Vá em:
+1. "Nova tarefa";
+2. Digite um nome, aqui vamos chamar de "HelloWorld";
+3. Selecione a opção "Contruir um projeto de softwre de estilo livre" (free-style);
+4. Clique em "Tudo certo";
+5. Vamos procurar pela opção "Build" ou "Passos de construção";
+6. Selecione a opção "Executar shell" 
+
+
+
 ## Plugin JCasC - Jenkins Configuration as Code
 O JCasC pode ser usado para utilizar as configurações do `Jenkins` como código, podendo assim versionar alterações e replicar para outros ambientes como local e server.
 
@@ -123,6 +134,8 @@ docker compose up -d
 Feito essas configurações, ao executar `docker compose up`, se o plugin JCasC estiver configurado corretamente, e o arquivo de configurações `jenkins.yaml` estiver na pasta `jenkins-config` o jenkins já vai carregar automaticamente as configurações pré configurados do arquivo e credenciais.
 
 ## Adicionando JDK
+**ATENÇÃO: não consegui testar os passos seguintes, pois já estou utilizando uma versão do `Jenkins` do docker que já vem pré-configurado com a JDK 21, portanto o passo a seguir sempre acabava resultando em erro, vou manter as anotações, pois no futuro pode ser importante essa análise novamente.**
+
 Por questões de compatibilidade entre diferentes ambientes, pode ser interessante a instalação da JDK ser feita de forma automática pelo Jenkins, mas posso estar enganado e talvez essa não ser a melhor abordagem, porém é o que faremos aqui:
 
 Vá para: Gerenciar Jenkins > Tools

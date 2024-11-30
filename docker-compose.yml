@@ -16,6 +16,9 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
       # - ./data/jenkins_home:/var/jenkins_home
+      - ./jenkins-config:/var/jenkins_home/config   # Diretório com o arquivo jenkins.yaml
+    environment:
+      - CASC_JENKINS_CONFIG=/var/jenkins_home/config/jenkins.yaml  # Variável de configuração
 
 volumes:
   jenkins_home: # Volume nomeado para armazenar os dados do Jenkins

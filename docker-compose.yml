@@ -1,0 +1,21 @@
+version: '3'
+
+networks:
+  jenkins-network:
+    name: jenkins-network
+
+services:
+  jenkins:
+    # para pegar senha execução: docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+    container_name: jenkins
+    image: jenkins/jenkins:lts-jdk21
+    ports:
+      - 8080:8080
+    networks:
+      - jenkins-network
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      # - ./data/jenkins_home:/var/jenkins_home
+
+volumes:
+  jenkins_home: # Volume nomeado para armazenar os dados do Jenkins

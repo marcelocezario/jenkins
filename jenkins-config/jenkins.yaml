@@ -9,6 +9,8 @@ jenkins:
     standard:
       excludeClientIPFromCrumb: false
   disableRememberMe: false
+  disabledAdministrativeMonitors:
+  - "jenkins.diagnostics.ControllerExecutorsNoAgents"
   labelAtoms:
   - name: "built-in"
   markupFormatter: "plainText"
@@ -163,7 +165,7 @@ tool:
       name: "Default"
   maven:
     installations:
-    - name: "mvn_3.9.9"
+    - name: "3.9.9"
       properties:
       - installSource:
           installers:

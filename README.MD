@@ -161,3 +161,22 @@ A adição do maven é muito semelhante a adição da jdk, até mais simples:
 3. Escolha uma versão, para esse exemplo estamos usando a versão "3.9.9";
 4. Clique em "Save";
 ![Configuração Maven no Jenkins](https://github.com/marcelocezario/imagens-publicas/blob/main/projeto-jenkins/Configura%C3%A7%C3%A3o%20Maven%20no%20Jenkins.png?raw=true)
+
+Feito essa configuração, para usar o `Maven` numa pipeline, indique o uso da ferramenta em tools na pipeline:
+```groovy
+pipeline {
+    agent any
+    tools {
+        maven '3.9.9'
+    }
+    stages {
+        stage ('Executando teste Maven') {
+            steps {
+                echo 'Fazendo um teste do maven'
+                sh 'mvn test'
+            }
+        }
+    }
+}
+```
+

@@ -8,15 +8,18 @@ services:
   jenkins:
     # para pegar senha execução: docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
     container_name: jenkins
-    image: jenkins/jenkins:lts-jdk21
+    build: .
+    image: jenkins_with_docker/latest
     ports:
       - 8080:8080
+      - 50000:50000
     networks:
       - jenkins-network
     volumes:
       - jenkins_home:/var/jenkins_home
       # - ./data/jenkins_home:/var/jenkins_home
       - ./jenkins-config:/var/jenkins_home/config   # Diretório com o arquivo jenkins.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - CASC_JENKINS_CONFIG=/var/jenkins_home/config/jenkins.yaml  # Variável de configuração
 
